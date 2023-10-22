@@ -1,1 +1,55 @@
-# Projet_Java
+        GUIDE D'UTILISATION DU GESTIONNAIRE DE BIBLIOTHEQUE
+
+Le Gestionnaire de Bibliothèque permet de gérer efficacement votre bibliothèque personnelle. 
+Ce guide vous aidera à comprendre les différentes fonctionnalités du gestionnaire et à les utiliser de manière optimale.
+
+Lancement de l'application : après avoir ouvert votre IDE lancer l'application sur l'interface console.
+
+Menu : une fois l'application lancer, le menu apparaitra et vous laissera le soin de choisir l'opération que vous souhaitez effectuer
+numéroter de 1 à 8.
+
+1 - Ajouter un livre :
+
+Pour ajouter un livre à votre bibliothèque, suivez les étapes ci-dessous :
+a. A la saisi du choix tapez 1 pour accéder à interface " Ajouter un livre ".
+b. Remplissez les informations requises telles que le titre, l'auteur, la date de parution, l'édition, la catégorie et le nombre d'exemplaire du livre à ajouter.
+c. Cliquez sur la touche "Entrer" pour ajouter le livre à votre bibliothèque.
+
+2 - Rechercher un livre :
+Pour rechercher un livre dans votre bibliothèque, suivez les étapes ci-dessous : 
+a. A la saisi du choix tapez 2 pour accéder à interface " Rechercher un livre ".
+b. Entrez les critères de recherche tels que le titre, l'auteur ou la catégorie du livre.
+c. Cliquez sur la touche "Entrer" pour afficher les résultats correspondants.
+
+3 -  Afficher la liste des livres :
+Pour afficher la liste des livres de votre bibliothèque, suivez les étapes ci-dessous :
+A la saisi du choix tapez 3 pour accéder à interface "Liste des livres stockés".
+Puis la liste des livres s'affichera.
+
+4 - Afficher la liste des emprunteurs :
+Pour afficher la liste de ceux qui ont emprunté des livres à la bibliothèque, suivez les étapes ci-dessous :
+A la saisi du choix tapez 4 pour accéder à interface "Liste des emprunteurs".
+Puis la liste des emprunteurs s'affichera.
+
+5 - Afficher la liste des auteurs :
+Pour afficher la liste des auteurs des livres stockés dans la bibliothèque, suivez les étapes ci-dessous :
+A la saisi du choix tapez 5 pour accéder à interface "Liste des auteurs".
+Puis la liste des auteurs s'affichera.
+
+6 - Emprunter un livre :
+Pour emprunter un livre à la bibliothèque, suivez les étapes ci-dessous :
+a. A la saisi du choix tapez 6 pour accéder à interface " Emprunt de livre ".
+b. Remplissez les informations requises telles que votre nom, le titre du livre et le nombre d'exemplaire du livre à emprunter.
+c. Cliquez sur la touche "Entrer" pour emprunter le livre à votre bibliothèque.
+
+7 - Retourner un livre :
+Pour retourner un livre à la bibliothèque, suivez les étapes ci-dessous :
+a. A la saisi du choix tapez 7 pour accéder à interface " Retour de livre ".
+b. Remplissez les informations requises telles que votre nom, le titre du livre et le nombre d'exemplaire du livre à retourner.
+c. Cliquez sur la touche "Entrer" pour retouner le livre à votre bibliothèque.
+
+8 - Quitter l'application :
+Pour quitter l'application, suivez les étapes ci-dessous :
+a. A la saisi du choix tapez 8. 
+b. Confirmer votre choix en tapant "oui" pour quitter et "non" pour retourner au menu.
+c. Cliquez sur la touche "Entrer" pour quitter ou non l'application.
