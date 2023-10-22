@@ -44,9 +44,11 @@ public  class Gestionnaire  implements Bibliothèque {
 	}
 
 	public ArrayList<Auteur> getListe_Auteurs() {
-		Liste_Auteurs.add(new Auteur("Albert Camus"));
-		Liste_Auteurs.add(new Auteur("Voltaire"));
-		Liste_Auteurs.add(new Auteur("Victor Hugo"));
+		Liste_Auteurs.add(new Auteur("George Orwell"));
+		Liste_Auteurs.add(new Auteur("Harper Lee"));
+		Liste_Auteurs.add(new Auteur("Aldous Huxley"));
+		Liste_Auteurs.add(new Auteur("Markus Zusak"));
+		Liste_Auteurs.add(new Auteur("Joseph Heller"));
 		return Liste_Auteurs;
 	}
 
@@ -61,7 +63,7 @@ public  class Gestionnaire  implements Bibliothèque {
 	
 	//Méthode qui affiche le menu
 	public void menu() {
-			        System.out.println("--------- Bienvenue à la librairie ! --------\n");
+			    System.out.println("--------- Bienvenue à la librairie ! --------\n");
 				System.out.println("------Quelle opération voulez vous effectuer ? ------\n");
 				System.out.println("--------- Tapez 1 pour Ajouter un livre --------\n");
 				System.out.println("--------- Tapez 2 pour Rechercher un livre --------\n");
@@ -81,20 +83,19 @@ public  class Gestionnaire  implements Bibliothèque {
 			System.out.println("Veuillez saisir les informations du livre :\n");
 			System.out.print("Titre : ");
     	 try {
-    	    
-			titre =  sc.nextLine();
+	   titre =  sc.nextLine();
 		
-		for(Livres  livre : getBibliotheque()) {
+            for(Livres  livre : getBibliotheque()) {
 		
-				 if((livre.getTitre()).equals(titre)) {
-					    System.out.println(" Ce livre existe déjà voulez vous en augmenter la quantité ? \n" );
-					    ChoixQte = sc.nextLine();
+		 if((livre.getTitre()).equals(titre)) {
+				System.out.println(" Ce livre existe déjà voulez vous en augmenter la quantité ? \n" );
+				ChoixQte = sc.nextLine();
 					
-					   if((ChoixQte.toLowerCase()).equals("oui")) {
-					       System.out.println("\n Veuillez saisir la quantité souhaitée \n");
-					       Qte = sc.nextInt();
-					       livre.setNb(Qte);
-					       System.out.println("La quantité à bien été mis à jour ! \n");
+		         if((ChoixQte.toLowerCase()).equals("oui")) {
+				 System.out.println("\n Veuillez saisir la quantité souhaitée \n");
+				 Qte = sc.nextInt();
+				 livre.setNb(Qte);
+				 System.out.println("La quantité à bien été mis à jour ! \n");
 					      return ;
 					      }
 				       else if((ChoixQte.toLowerCase()).equals("non")) {
@@ -103,25 +104,26 @@ public  class Gestionnaire  implements Bibliothèque {
 				          }
 				        }
 				 else if(! titre.equals(livre.getTitre())) {
-					 continue;
-				 }
+					 System.out.println("Auteur: ");
+				      nomAuteur = sc.nextLine();
+				      System.out.print("Date de sortie (jj/mm/aa) : ");
+				      DateSortie = sc.nextLine();
+				      System.out.print("Edition : ");
+				      Edition = sc.nextLine();
+				      System.out.print("Catégorie du livre : ");
+				      Catégorie = sc.nextLine();
+				      System.out.print("Nombre d'exemplaire du livre : ");
+				      Qte = sc.nextInt();
+				 Liste_Auteurs.add(new Auteur(nomAuteur));
+				bibliotheque.add(new Livres(titre,nomAuteur,DateSortie,Edition,Catégorie,Qte));
+				
+				System.out.println("Livre ajouter avec succés !\n");
+				System.lineSeparator();
+				}
+				
 			
 			    else {
-					      System.out.println("Auteur: ");
-					      nomAuteur = sc.nextLine();
-					      System.out.print("Date de sortie (jj/mm/aa) : ");
-					      DateSortie = sc.nextLine();
-					      System.out.print("Edition : ");
-					      Edition = sc.nextLine();
-					      System.out.print("Catégorie du livre : ");
-					      Catégorie = sc.nextLine();
-					      System.out.print("Nombre d'exemplaire du livre : ");
-					      Qte = sc.nextInt();
-					
-					bibliotheque.add(new Livres(titre,nomAuteur,DateSortie,Edition,Catégorie,Qte));
-					
-					System.out.println("Livre ajouter avec succés !\n");
-					System.lineSeparator();
+					     continue;
 				}
 			
     	 
@@ -134,6 +136,8 @@ public  class Gestionnaire  implements Bibliothèque {
 						 System.out.println("Entrée invalide. Le nombre d'exemplaire est un entier !");
 					 }catch(ConcurrentModificationException ex) {
 						 
+					 }catch(NullPointerException e) {
+						 System.out.println("Nous pointer vers un objet qui n'existe pas");
 					 }
 			
 			 
@@ -207,7 +211,7 @@ public  class Gestionnaire  implements Bibliothèque {
 			System.out.println("-------- La liste des Auteurs -------\n");
 			
 			for(Auteur  ListeA : getListe_Auteurs()){
-				System.out.println("Nom : "+ListeA.getNomAuteur());
+				System.out.println("\n"+ListeA.getNomAuteur());
 			}
 			
 	}
@@ -217,7 +221,7 @@ public  class Gestionnaire  implements Bibliothèque {
 			try {
 			System.out.println("-------Emprunt de livre --------\n");
 			System.out.println("Veuillez saisir votre nom : ");
-			String nom = sc.nextLine();
+			String nom = sc.nextLine();sc.nextLine();
 			System.out.println("Quel livre souhaitez vous empruntez ?");
 			System.out.println("Titre :");
 			String titre = sc.nextLine();
@@ -256,35 +260,42 @@ public  class Gestionnaire  implements Bibliothèque {
 			System.lineSeparator();	
 	}
 		// Méthode qui permet de retourner un livre
-		public void RetournerLivre() {
+	public void RetournerLivre() {
 		   try {
-			System.out.println("-------Retour de livre --------\n");
-			System.out.println("Veuillez saisir votre nom : \n");
-			String nom = sc.nextLine();
+			  System.out.println("-------Retour de livre --------\n");
+			  System.out.println("Veuillez saisir votre nom : \n");
+			  String nom = sc.nextLine();
 			
-			      for(Emprunteur Ep : getListe_Emprunteurs() ) {
+			   for(Emprunteur Ep : getListe_Emprunteurs() ) {
 			    	  
 			    	  if( !(nom.equals(Ep.getNomEmprunteur()))) {
 			    		  continue;
-			    	  }
+			    	       }
 			    	  else if(nom.equals(Ep.getNomEmprunteur())) {
 					      System.out.println("Quel livre voulez vous retournez ?\n");
 					      System.out.print("Titre :");
 					      titre = sc.nextLine();
-					      
-				       }
-			      }
-				         for(Livres Livres : getBibliotheque() ) {
+					      for(Livres Livres : getBibliotheque() ) {
+					    	  
 					          if(titre.equals(Livres.getTitre())){
 						          Livres.setNb(1);
 							      System.out.println("\nLe livre à bien été retourner, merci de votre loyauté \n");
 							      break;
 					              }
+					  
 				              else {
 						          System.out.println("Ce livre n'existe pas dans la bibliothèque veuillez l'ajouter !");
 						          break;
 					              }
+				          }
 				       }
+			    	  else {
+			    		
+			    		  System.out.println("Vous ne figurez pas dans la liste des emprunteurs\n");
+			    	  }
+			     }
+			  
+				         
 				         System.lineSeparator();  
 			       }catch(NullPointerException e){
 			    	   System.out.println("La liste des emprunteurs est vide !");
