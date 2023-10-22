@@ -1,16 +1,16 @@
-             GUIDE DE FONCTIONNEMENT DU GESTIONNAIRE D'APPLICATION
+GUIDE DE FONCTIONNEMENT DU GESTIONNAIRE D'APPLICATION
 
 
 Le Gestionnaire de Bibliothèque permet de gérer efficacement votre bibliothèque personnelle. 
-Ce guide vous aidera à comprendre  comment les différentes fonctionnalités du gestionnaire ont été élaborer.
-Pour pouvoir gérer le stockage des données nous utiliserons ici une ArrayList et implémenterons neuf(09) méthodes pour effectuer nos opérations.
+Ce guide vous aidera à comprendre comment les différentes fonctionnalités du gestionnaire ont été élaborer.
+Pour pouvoir gérer le stockage des données nous utiliserons ici une ArrayList et implémenterons neuf (09) méthodes pour effectuer nos opérations.
 
 Tous D'abord on a :
 
 L'INTERFACE "Bibliothèque" :
-cette interface nous permet ecrire des méthodes abstraites que nous implementerons par la suite.
-elle importe la classe Date du package java.util.* pour pouvoir utiliser classe prédéfinie Date.
-les différentes méthodes sont :
+Cette interface nous permet écrire des méthodes abstraites que nous implémenterons par la suite.
+Elle importe la classe Date du package java.util.* pour pouvoir utiliser classe prédéfinie Date.
+Les différentes méthodes sont :
         public void RechercherLivre();
 	public  void EmprunterLivre() throws GestionException;
 	public  void RetournerLivre();
@@ -22,44 +22,43 @@ les différentes méthodes sont :
 	public  Date GestionDateEcheance(Date DateEmprunt,int JourEcheant);
 
 LA CLASSE "Livres" :
-cette classe a été créer pour représenter les différents livres présents dans notre bibliothèque.
-elle contient :
+Cette classe a été créer pour représenter les différents livres présents dans notre bibliothèque.
+Elle contient :
 - 6 attributs 
-le titre,l'auteur,l'édition,la catégorie, la date de parution et le nombre d'exemplaire du livre
+Le titre, l'auteur, l'édition, la catégorie, la date de parution et le nombre d'exemplaire du livre
 - les getters et setters des attributs puisqu'ils ont été déclarer en privé
 
 LA CLASSE "Auteur" :
-cette classe a été créer pour représenter les différents auteurs des livres présents dans la bibliothèque.
-elle contient : 
+Cette classe a été créer pour représenter les différents auteurs des livres présents dans la bibliothèque.
+Elle contient : 
 - 1 attribut
-le nom de l'auteur 
+Le nom de l'auteur 
 -le getter pour accéder au nom de l'auteur déclarer en privé
 
 LA CLASSE "Emprunteur" :
-cette classe a été créer pour représenter les différents emprunteurs des livres présents dans notre bibliothèque.
-elle importe la classe Date du package java.util.* pour pouvoir utiliser classe prédéfinie Date
-elle contient : 
+Cette classe a été créer pour représenter les différents emprunteurs des livres présents dans notre bibliothèque.
+Elle importe la classe Date du package java.util.* pour pouvoir utiliser classe prédéfinie Date
+Elle contient : 
 -3 attributs 
-le nom de l'emprunteur, la date d'emprunt du livre et la date limite de retour du livre
+Le nom de l'emprunteur, la date d'emprunt du livre et la date limite de retour du livre
 -les getters des attributs puisqu'ils ont été déclarer en privé
 
 LA CLASSE "GestionException" :
-cette classe a été créer pour gérer toutes les potentiels erreurs dans le code en nous donnant la possibilité de personnalisé la gestion des erreurs.
-cette classe hérite des méthodes de la classe Exception par le mot-clé "extends"
-elle contient:
+Cette classe a été créer pour gérer toutes les potentiels erreurs dans le code en nous donnant la possibilité de personnalisé la gestion des erreurs.
+Cette classe hérite des méthodes de la classe Exception par le mot-clé "extends"
+Elle contient :
 - 2 méthodes
 public void ChoixInvalide(int choix)
-cette méthode permet de vérifier si l'entrée de l'utilisateur est bien un chiffre entre 1 et 8 compris.
+Cette méthode permet de vérifier si l'entrée de l'utilisateur est bien un chiffre entre 1 et 8 compris.
 public void choixinvalide(String choix)
-cette méthode permet de vérifier si l'entrée de l'utilisateur est bien le mot "oui" oui "non"
+Cette méthode permet de vérifier si l'entrée de l'utilisateur est bien le mot "oui" oui "non".
 
 LA CLASSE "Gestionnaire" :
-C'est dans cette classe qu'on implementera nos 09 méthodes de l'interface Bibliothèque.
+C'est dans cette classe qu'on implémentera nos 09 méthodes de l'interface Bibliothèque.
 Pour se faire elle implémentera Bibliothèque grâce au mot-clé "implements"
-elle importe les classes Scanner, ArrayList, Date, InputMismatchException, Calendar, ConcurrentModificationException
-du package java.util.*
+Elle importe les classes Scanner, ArrayList, Date, InputMismatchException, Calendar, ConcurrentModificationException du package java.util.*
 
-elle contient:
+Elle contient :
 
 - 15 attributs
 il y' a 3 ArrayList pour le Stockage de nos différentes listes
@@ -73,64 +72,56 @@ Livres pour accéder aux attributs de la classe Livres
 
 - Les getters des variables privées
 
--une méthode public void menu() :
-qui affiche le menu du gestionnaire avec les différents choix possibles
+-une méthode public void menu () :
+Qui affiche le menu du gestionnaire avec les différents choix possibles.
 
--une méthode public void AjouterLivre() throws GestionException :
-qui demande à l'utilisateur de saisir les différentes informations du livre,
-à la saisie du titre du livre on parcours notre arraylist pour vérifier si l'un des livres stockés a 
-le même titre si c'est le cas on demande à l'utilisateur s'il veut augmenter la quantité du livre déjà ajouter 
-s'il tape "oui" il entre la quantité souahitée et la quantité est mise à jour s'il tape "non" on relance la méthode AjouterLivre()
-si le titre ne correspond à aucun des livres déjà ajouter il continue la saisie et ajoute le livre.
+-une méthode public void AjouterLivre () throws GestionException :
+Qui demande à l'utilisateur de saisir les différentes informations du livre,
+À la saisie du titre du livre on parcourt notre arraylist pour vérifier si l'un des livres stockés a 
+Le même titre si c'est le cas on demande à l'utilisateur s'il veut augmenter la quantité du livre déjà ajouter, s’il tape "oui" il entre la quantité souhaitée et la quantité est mise à jour s'il tape "non" on relance la méthode AjouterLivre (), si le titre ne correspond à aucun des livres déjà ajouter il continue la saisie et ajoute le livre.
 
 
--une méthode public void AfficherListeLivres() : 
-qui parcourt une arraylist qui stock les différents livres grâce à une boucle for-each et affiche les différents éléments du livre
+-une méthode public void AfficherListeLivres () : 
+Qui parcourt une arraylist qui stock les différents livres grâce à une boucle for-each et affiche les différents éléments du livre.
 
--une méthode public void AfficherListeEmprunteur();
-qui parcourt une arraylist qui stock les différents emprunteurs grâce à une boucle for-each et affiche les différents éléments de l'emprunteur
+-une méthode public void AfficherListeEmprunteur () :
+Qui parcourt une arraylist qui stock les différents emprunteurs grâce à une boucle for-each et affiche les différents éléments de l'emprunteur.
 
--une méthode public void AfficherListeAuteur() : 
-qui parcourt une arraylist qui stock les différents auteurs grâce à une boucle for-each et affiche les différents éléments de l'auteur
+-une méthode public void AfficherListeAuteur () : 
+Qui parcourt une arraylist qui stock les différents auteurs grâce à une boucle for-each et affiche les différents éléments de l'auteur.
 
--une méthode public void Quitter() throws GestionException :
-qui demande à l'utilisateur de confirmer sa demande de quitter l'application 
-s'il tape "oui" l'application s'arrête, s'il tape non on relance le menu sinon on envoie un message d'erreur lui disant d'entrer "oui" ou "non"
+-une méthode public void Quitter () throws GestionException :
+Qui demande à l'utilisateur de confirmer sa demande de quitter l'application, s'il tape "oui" l'application s'arrête, s'il tape non on relance le menu sinon on envoie un message d'erreur lui disant d'entrer "oui" ou "non".
 
--une méthode public Date GestionDateEcheance(Date DateEmprunt,int JourEcheant):
-cette méthode prend en paramètre la date d'emprunt du livre et le nombre de jour limite pour retourner le livre
-elle utilise calendar pour calculer la date d'échance en rajoutant à la date d'emprunt les jours d'échéance en fonction du calendrier puis retourne la date d'échéance
+-une méthode public Date GestionDateEcheance (Date DateEmprunt, int JourEcheant) :
+Cette méthode prend en paramètre la date d'emprunt du livre et le nombre de jour limite pour retourner le livre.
+Elle utilise calendar pour calculer la date d'échéance en rajoutant à la date d'emprunt les jours d'échéance en fonction du calendrier puis retourne la date d'échéance.
 
--une méthode public void RechercherLivre() :
-cette méthode permet de rechercher un livre dans la liste des livres en fonction de son titre,son auteur ou de sa catégorie
-l'utilisateur saisir la donnée par laquelle il veut rechercher le livre, puis on parcourt la liste des livres à l'aide d'une boucle for-each 
-pour vérifié si la saisie de l'utilisateur correspond à un livre en particulier puis affiche les éléments du livre correspondant sinon on renvoie un message d'erreur
+-une méthode public void RechercherLivre () :
+Cette méthode permet de rechercher un livre dans la liste des livres en fonction de son titre, son auteur ou de sa catégorie, l'utilisateur saisir la donnée par laquelle il veut rechercher le livre, puis on parcourt la liste des livres à l'aide d'une boucle for-each pour vérifier si la saisie de l'utilisateur correspond à un livre en particulier puis affiche les éléments du livre correspondant sinon on renvoie un message d'erreur.
 
--une méthode public void EmprunterLivre() throws GestionException :
-cette méthode permet d'emprunter un livre dans la bibliothèque
-elle demande à l'utilisateur de saisir son nom ,le titre du livre qu'il veut emprunter puis le nombre d'exemplaire du livre
-Grâce à une boucle for-each on parcourt la liste des livres si le titre du livre saisie correspond à l'un des livres et
-que la quantité demandé est disponible l'utiliateur emprunte le livre 
-sinon on renvoie un essage d'erreur
+-une méthode public void EmprunterLivre () throws GestionException :
 
--une méthode public void RetournerLivre() : 
-ette méthode permet de retourner un livre à la bibliothèque
-elle demande à l'utilisateur de saisir son nom, grâce à une boucle for-each on parcourt la liste des emprunteurs si le nom saisie ne figure pas dans la liste des emprunteurs 
-on renvoi un message d'erreur sinon on demande à l'utilisateur de saisir le titre du livre qu'il veut retourner puis le nombre d'exemplaire du livre
-grâce à une boucle for-each on parcourt la liste des livres si le titre du livre saisie correspond à l'un des livres  l'utiliateur retourne le livre
-sinon on renvoie un message d'erreur
+Cette méthode permet d'emprunter un livre dans la bibliothèque
+Elle demande à l'utilisateur de saisir son nom, le titre du livre qu'il veut emprunter puis le nombre d'exemplaire du livre.
+Grâce à une boucle for-each on parcourt la liste des livres si le titre du livre saisie correspond à l'un des livres et que la quantité demandée soit disponible l'utilisateur emprunte le livre 
+Sinon on renvoie un message d'erreur.
+
+-une méthode public void RetournerLivre () : 
+
+Cette méthode permet de retourner un livre à la bibliothèque.
+Elle demande à l'utilisateur de saisir son nom, grâce à une boucle for-each on parcourt la liste des emprunteurs, si le nom saisi ne figure pas dans la liste des emprunteurs on renvoi un message d'erreur sinon on demande à l'utilisateur de saisir le titre du livre qu'il veut retourner puis le nombre d'exemplaire du livre.
+Grâce à une boucle for-each on parcourt la liste des livres si le titre du livre saisie correspond à l'un des livres, l’utilisateur retourne le livre sinon on renvoie un message d'erreur.
 
 
 LA CLASSE "Main" :
-cette classe est la classe principale de notre projet qui contient la méthode main qui va nous servir de point d'exécution de notre projet
-elle importe les classes Scanner et InputMismatchException du package java.util.*
-
-elle contient :
+Cette classe est la classe principale de notre projet qui contient la méthode main qui va nous servir de point d'exécution de notre projet.
+Elle importe les classes Scanner et InputMismatchException du package java.util.*.
+Elle contient :
 -1 attribut
 choix qui récupère le choix de l'utilisateur 
 - 2 instanciation de classe
 Gestionnaire
 Scanner
-- 1 boucle do while pour l'exécution continu du programme
-- 1 boucle switch qui permet d'appeler différentes méthodes en fonction de la valeur de la variable choix
-
+- 1 boucle do while pour l'exécution continu du programme.
+- 1 boucle switch qui permet d'appeler différentes méthodes en fonction de la valeur de la variable choix.
