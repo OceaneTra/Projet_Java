@@ -9,9 +9,9 @@ Tous D'abord on a :
 
 L'INTERFACE "Bibliothèque" :
 cette interface nous permet ecrire des méthodes abstraites que nous implementerons par la suite.
-elle importe la classe Date du package java.util.Date pour pouvoir utiliser classe prédéfinie Date.
+elle importe la classe Date du package java.util.* pour pouvoir utiliser classe prédéfinie Date.
 les différentes méthodes sont :
-  public  void RechercherLivre();
+        public void RechercherLivre();
 	public  void EmprunterLivre() throws GestionException;
 	public  void RetournerLivre();
 	public  void AfficherListeLivres();
@@ -37,7 +37,7 @@ le nom de l'auteur
 
 LA CLASSE "Emprunteur" :
 cette classe a été créer pour représenter les différents emprunteurs des livres présents dans notre bibliothèque.
-elle importe la classe Date du package java.util.Date pour pouvoir utiliser classe prédéfinie Date
+elle importe la classe Date du package java.util.* pour pouvoir utiliser classe prédéfinie Date
 elle contient : 
 -3 attributs 
 le nom de l'emprunteur, la date d'emprunt du livre et la date limite de retour du livre
@@ -56,6 +56,9 @@ cette méthode permet de vérifier si l'entrée de l'utilisateur est bien le mot
 LA CLASSE "Gestionnaire" :
 C'est dans cette classe qu'on implementera nos 09 méthodes de l'interface Bibliothèque.
 Pour se faire elle implémentera Bibliothèque grâce au mot-clé "implements"
+elle importe les classes Scanner, ArrayList, Date, InputMismatchException, Calendar, ConcurrentModificationException
+du package java.util.*
+
 elle contient:
 
 - 15 attributs
@@ -84,7 +87,7 @@ si le titre ne correspond à aucun des livres déjà ajouter il continue la sais
 -une méthode public void AfficherListeLivres() : 
 qui parcourt une arraylist qui stock les différents livres grâce à une boucle for-each et affiche les différents éléments du livre
 
--une méthode 	public void AfficherListeEmprunteur();
+-une méthode public void AfficherListeEmprunteur();
 qui parcourt une arraylist qui stock les différents emprunteurs grâce à une boucle for-each et affiche les différents éléments de l'emprunteur
 
 -une méthode public void AfficherListeAuteur() : 
@@ -116,4 +119,18 @@ elle demande à l'utilisateur de saisir son nom, grâce à une boucle for-each o
 on renvoi un message d'erreur sinon on demande à l'utilisateur de saisir le titre du livre qu'il veut retourner puis le nombre d'exemplaire du livre
 grâce à une boucle for-each on parcourt la liste des livres si le titre du livre saisie correspond à l'un des livres  l'utiliateur retourne le livre
 sinon on renvoie un message d'erreur
+
+
+LA CLASSE "Main" :
+cette classe est la classe principale de notre projet qui contient la méthode main qui va nous servir de point d'exécution de notre projet
+elle importe les classes Scanner et InputMismatchException du package java.util.*
+
+elle contient :
+-1 attribut
+choix qui récupère le choix de l'utilisateur 
+- 2 instanciation de classe
+Gestionnaire
+Scanner
+- 1 boucle do while pour l'exécution continu du programme
+- 1 boucle switch qui permet d'appeler différentes méthodes en fonction de la valeur de la variable choix
 
