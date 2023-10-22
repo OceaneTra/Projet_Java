@@ -36,7 +36,7 @@ public  class Gestionnaire  implements Bibliothèque {
 	public String getRech() {
 		return Rech;
 	}
-    public ArrayList<Emprunteur> getListe_Emprunteurs() {
+        public ArrayList<Emprunteur> getListe_Emprunteurs() {
     	        Liste_Emprunteurs.add(new Emprunteur("Gomez Ange",dateEmprunt,dateEcheance));
 		Liste_Emprunteurs.add(new Emprunteur("Tra Lou Océane",dateEmprunt,dateEcheance));
 		Liste_Emprunteurs.add(new Emprunteur("Monsan Josué",dateEmprunt,dateEcheance));
@@ -51,11 +51,11 @@ public  class Gestionnaire  implements Bibliothèque {
 	}
 
 	public ArrayList<Livres> getBibliotheque() {
-		    bibliotheque.add(new Livres("1984","George Orwell","05/06/2018","GALLIMARD","Littérature",2));
-		    bibliotheque.add(new Livres("Ne tirez pas sur l'oiseau moqueur","Harper Lee","07/01/2019","GRASSET","Bande dessinée",2));
-		    bibliotheque.add(new Livres("Le meilleur des mondes","Aldous Huxley","11/06/2015","PLACE DES EDITEURS","Littérature",5));
-		    bibliotheque.add(new Livres("La voleuse de livres","Markus Zusak","05/06/2005","POCKET","Littérature",7));
-		    bibliotheque.add(new Livres("CATCH-22","Joseph Heller","05/04/2011","SIMON & SCHUSTER","Livre anglais",2));
+	        bibliotheque.add(new Livres("1984","George Orwell","05/06/2018","GALLIMARD","Littérature",2));
+	        bibliotheque.add(new Livres("Ne tirez pas sur l'oiseau moqueur","Harper Lee","07/01/2019","GRASSET","Bande dessinée",2));
+	        bibliotheque.add(new Livres("Le meilleur des mondes","Aldous Huxley","11/06/2015","PLACE DES EDITEURS","Littérature",5));
+	        bibliotheque.add(new Livres("La voleuse de livres","Markus Zusak","05/06/2005","POCKET","Littérature",7));
+		bibliotheque.add(new Livres("CATCH-22","Joseph Heller","05/04/2011","SIMON & SCHUSTER","Livre anglais",2));
 		return bibliotheque;
 	}
 	
@@ -73,10 +73,10 @@ public  class Gestionnaire  implements Bibliothèque {
 				System.out.println("--------- Tapez 8 pour quitter le gestionnaire --------\n");
 				System.out.print("choix :");
 				
-    }
+        }
 		
-	// Méthode qui permet à l'utilisateur d'ajouter des livres dans la bibliothèque
-    public void AjouterLivre() throws GestionException {
+       // Méthode qui permet à l'utilisateur d'ajouter des livres dans la bibliothèque
+        public void AjouterLivre() throws GestionException {
     	    System.out.println("------- Ajout de livre --------\n");
 			System.out.println("Veuillez saisir les informations du livre :\n");
 			System.out.print("Titre : ");
@@ -97,11 +97,11 @@ public  class Gestionnaire  implements Bibliothèque {
 					       System.out.println("La quantité à bien été mis à jour ! \n");
 					      return ;
 					      }
-				       else if((ChoixQte.toLowerCase()).equals("non")) {
+				           else if((ChoixQte.toLowerCase()).equals("non")) {
 							AjouterLivre();
 							return;
-				          }
-				        }
+				              }
+				 }
 				 else if(! titre.equals(livre.getTitre())) {
 					 continue;
 				 }
